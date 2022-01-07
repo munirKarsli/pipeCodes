@@ -2,7 +2,7 @@ const db = require("../models");
 const Schema = db.schema;
 
 exports.create = (req, res) => {
-  if (!req.body.title || !req.body.description || !req.body.featuredImage) {
+  if (!req.body.title || !req.body.description || !req.body.featuredImage || req.body.published == null) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
